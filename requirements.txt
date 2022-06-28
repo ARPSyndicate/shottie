@@ -1,5 +1,4 @@
 selenium
 undetected_chromedriver
 selenium-screenshot
-optparse
 pillow
