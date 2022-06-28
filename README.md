@@ -5,6 +5,7 @@
 
 ## Instructions for running
 1. Install requirements using `pip3 install -r requirements.txt`.
+3  Install Chromium & Chromedriver using `bash chrome.sh` 
 2. Run `python3 shottie.py`.<br>
 
 **COMPATIBILITY TESTED ON ARCHLINUX(x64) & DEBIAN(x64) ONLY**<br>
