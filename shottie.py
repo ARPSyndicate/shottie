@@ -9,9 +9,6 @@ import os
 import concurrent.futures
 from PIL import ImageFile
 import time
-import warnings
-
-warnings.filterwarnings("ignore")
 
 BLUE='\033[94m'
 RED='\033[91m'
@@ -80,10 +77,10 @@ def browser(tars):
                 for retry in range(0,retries):
                         try:
                                 screenshot(target, count, tabs, driver, ss, timeout/2)
-                                print(BLUE + "[+] " +url + CLEAR)
+                                print(BLUE + "[+] " +target + CLEAR)
                                 break
                         except Exception as ex:
-                                if retry == retries-1:
+                                if retry >= retries-1:
                                         print(RED + "[!] "+target+"  -  "+str(ex.__class__.__name__)+ CLEAR)
                                 continue
         driver.quit()
