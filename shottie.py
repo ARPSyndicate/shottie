@@ -9,6 +9,8 @@ import os
 import concurrent.futures
 from PIL import ImageFile
 import time
+from multiprocessing import Process
+from multiprocessing import active_children 
 
 BLUE='\033[94m'
 RED='\033[91m'
@@ -16,7 +18,7 @@ GREEN='\033[92m'
 YELLOW='\033[93m'
 CLEAR='\x1b[0m'
 
-print(BLUE + "Shottie[1.0] by ARPSyndicate" + CLEAR)
+print(BLUE + "Shottie[1.1] by ARPSyndicate" + CLEAR)
 print(YELLOW + "web screenshot utility" + CLEAR)
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -105,3 +107,8 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=browsers) as executor:
 		executor.shutdown(wait=False)
 		sys.exit()
 
+active = active_children()
+for child in active:
+        child.kill()
+for child in active:
+        child.join()
